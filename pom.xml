@@ -15,7 +15,7 @@
     <scala.version>2.12</scala.version>
     <spark.version>3.5.0</spark.version>
     <junit.version>4.13.1</junit.version>
-    <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+    <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
   </properties>
 
   <dependencies>
@@ -74,9 +74,17 @@
         </configuration>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.0</version>
+        <configuration>
+          <argLine>--add-exports java.base/sun.nio.ch=ALL-UNNAMED</argLine>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
-        <version>1.6.0</version>
+        <version>3.5.0</version>
         <configuration>
           <executable>java</executable>
           <arguments>
